@@ -1,0 +1,41 @@
+{%load static %}
+<!DOCTYPE HTML>
+<html lang="en" >
+<html>
+<head>
+  <title>Sign Up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="{% static 'signup_style.css'%}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>  
+</head>
+
+<body class="body">  
+<div class="login-page">
+  <div class="form">
+{% if error %}
+{{error}}
+{% endif %}
+                <form method="post" action="/signup" enctype="multipart/form-data" >
+{% csrf_token %}
+
+      <input name="first_name" type="text" placeholder="First Name" required/>
+      <input name="last_name"  type="text" placeholder="Last Name" required/>
+      <input name="age" type="text" placeholder="Age" required/>
+      <input name="unique"  type="text" placeholder="Unique ID" minlength="6"/>
+<input name="image" id="upload" type="file" onchange="readURL(this);" name="fileimage" class="form-control border-0 profile" required >
+      <input name="email"  type="text" placeholder="email address" required/>
+      <input name="password"  id="password" type="password" placeholder=" password" minlength="8" required/>
+      <input name="confirm_password"  id="confirm_password" type="password" placeholder="Confirm password" minlength="8"/>
+
+      <button type="submit" >SIGN UP</button>
+    </form>
+  </div>
+</div>
+
+
+
+</body>
+</html>
+
